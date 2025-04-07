@@ -1,0 +1,17 @@
+@use "./Variables/mixin";
+@use "./Variables/vars";
+
+*, *::before, *::after{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html, body{
+    scroll-behavior: smooth;
+    font-family: var(--sans);
+    font-weight: normal;
+    font-size: 1rem;
+    line-height: 150%;
+}
+
