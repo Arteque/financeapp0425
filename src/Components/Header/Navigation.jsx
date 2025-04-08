@@ -3,9 +3,9 @@ import Class from "./Navigation.module.scss";
 const Navigation = () => {
   return (
     <nav>
-      <ul>
+      <ul className={Class.nav_ul}>
         <li>
-          <Link className={`${Class.link} ${Class.current}`} to="/">
+          <Link className={`${Class.link} current`} to="/">
             <span className={Class.icon}>
               <svg
                 
@@ -20,7 +20,7 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className="text">Overview</span>
+            <span className={Class.text}>Overview</span>
           </Link>
         </li>
         <li>
@@ -39,7 +39,7 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className="text">Transactions</span>
+            <span className={Class.text}>Transactions</span>
           </Link>
         </li>
         <li>
@@ -58,7 +58,7 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className="text">Budgets</span>
+            <span className={Class.text}>Budgets</span>
           </Link>
         </li>
         <li>
@@ -77,7 +77,7 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className="text">Pots</span>
+            <span className={Class.text}>Pots</span>
           </Link>
         </li>
         <li>
@@ -96,7 +96,7 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className="text">Recurring Bills</span>
+            <span className={Class.text}>Recurring Bills</span>
           </Link>
         </li>
       </ul>

@@ -1,23 +1,37 @@
 @use "./Variables/mixin";
 @use "./Variables/vars";
 
-*, *::before, *::after{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
+*,
+*::before,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-html, body{
-    scroll-behavior: smooth;
-    font-family: var(--sans);
-    font-weight: normal;
-    font-size: 1rem;
-    line-height: 150%;
+html,
+body {
+  scroll-behavior: smooth;
+  font-family: var(--sans);
+  font-weight: normal;
+  font-size: 1rem;
+  line-height: 150%;
 }
 
-a{
-    text-decoration: none;
+a {
+  text-decoration: none;
+  &.current {
+    background: var(--clr-white-100);
+    // color: var(--clr-grey-400);
+    svg {
+      fill: var(--clr-second-green);
+    }
+
+    @include mixin.lg {
+      border-inline-start: 4px solid var(--clr-second-green);
+    }
+  }
 }
-ul[class]{
-    list-style: none;
+ul[class] {
+  list-style: none;
 }
