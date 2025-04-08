@@ -1,0 +1,11 @@
+@use "../../Style/Variables/mixin";
+
+.container{
+    padding: 24px;
+    background:var(--clr-white-100);
+    padding: 24px;
+    border-radius: 12px;
+    @include mixin.md{
+        padding: 2rem;
+    }
+}

@@ -1,0 +1,41 @@
+@use '../../Style/Variables/mixin';
+
+.link{
+    font-size: 12px;
+    font-weight: bold;
+    line-height: 150%;
+    color: var(--clr-grey-100);
+    transition: all 0.3s;
+    &.current{
+        background: var(--clr-white-100);
+        color: var(--clr-grey-400);
+        .icon{
+            svg{
+                fill:var(--clr-second-green);
+            }
+        }
+
+        @include mixin.lg{
+            border-inline-start: 4px solid var(--clr-second-green);
+        }
+    }
+    @include mixin.lg{
+        font-size:1rem;
+        display:flex;
+        gap: 1rem;
+        align-items: center;
+        padding-inline-start: 32px;
+        padding-block: 1rem;
+        border-radius: 0 12px 12px 0;
+        margin-inline-end: 24px;
+    }
+}
+.icon{
+    svg{
+        display: block;
+        width: 18px !important;
+        height: 19px !important;
+        fill:var(--clr-grey-100);
+        transition: all 0.3s;
+    }
+}

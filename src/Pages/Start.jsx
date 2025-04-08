@@ -1,8 +1,15 @@
+import BlockTitle from "../Components/PageTitle/BlockTitle"
+import PageTitle from "../Components/PageTitle/PageTitle"
 
 const Start = () => {
   return (
     <div>
-      Data
+      <PageTitle>
+        Transactions
+      </PageTitle>
+      <BlockTitle>
+        Pots
+      </BlockTitle>
     </div>
   )
 }

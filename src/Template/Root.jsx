@@ -1,5 +1,7 @@
 import { Outlet } from "react-router-dom";
 
+
+
 import Header from "../Components/Header/Header";
 
 import RouteChangeLoader from "../Components/RouteChangeLoader/RouteChangeLoader";
@@ -16,6 +18,7 @@ const Root = () => {
       <Header />
       <Outlet />
       <Footer />
+      
     </>
   );
 };
