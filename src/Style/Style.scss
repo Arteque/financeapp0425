@@ -18,20 +18,3 @@ body {
   line-height: 150%;
 }
 
-a {
-  text-decoration: none;
-  &.current {
-    background: var(--clr-white-100);
-    // color: var(--clr-grey-400);
-    svg {
-      fill: var(--clr-second-green);
-    }
-
-    @include mixin.lg {
-      border-inline-start: 4px solid var(--clr-second-green);
-    }
-  }
-}
-ul[class] {
-  list-style: none;
-}

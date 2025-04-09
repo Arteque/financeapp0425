@@ -1,12 +1,11 @@
 import { Link } from "react-router-dom";
-import Class from "./Navigation.module.scss";
 const Navigation = () => {
   return (
     <nav>
-      <ul className={Class.nav_ul}>
+      <ul className="nav_ul">
         <li>
-          <Link className={`${Class.link} current`} to="/">
-            <span className={Class.icon}>
+          <Link className="link current" to="/">
+            <span className="icon">
               <svg
                 
                 height="19"
@@ -20,12 +19,12 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className={Class.text}>Overview</span>
+            <span className="text">Overview</span>
           </Link>
         </li>
         <li>
-          <Link className={Class.link} to="/transactions">
-            <span className={Class.icon}>
+          <Link className="link" to="/transactions">
+            <span className="icon">
               <svg
                 
                 height="18"
@@ -39,12 +38,12 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className={Class.text}>Transactions</span>
+            <span className="text">Transactions</span>
           </Link>
         </li>
         <li>
-          <Link className={Class.link} to="/budgets">
-            <span className={Class.icon}>
+          <Link className="link" to="/budgets">
+            <span className="icon">
               <svg
                 
                 height="20"
@@ -58,12 +57,12 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className={Class.text}>Budgets</span>
+            <span className="text">Budgets</span>
           </Link>
         </li>
         <li>
-          <Link className={Class.link} to="/pots">
-            <span className={Class.icon}>
+          <Link className="link" to="/pots">
+            <span className="icon">
               <svg
                 
                 height="22"
@@ -77,12 +76,12 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className={Class.text}>Pots</span>
+            <span className="text">Pots</span>
           </Link>
         </li>
         <li>
-          <Link className={Class.link} to="/recurringbills">
-            <span className={Class.icon}>
+          <Link className="link" to="/recurringbills">
+            <span className="icon">
               <svg
                 
                 height="28"
@@ -96,7 +95,7 @@ const Navigation = () => {
                 />
               </svg>
             </span>
-            <span className={Class.text}>Recurring Bills</span>
+            <span className="text">Recurring Bills</span>
           </Link>
         </li>
       </ul>
