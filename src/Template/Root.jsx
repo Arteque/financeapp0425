@@ -16,7 +16,9 @@ const Root = () => {
       <RouteChangeLoader />
       {loading && <Loader />}
       <Header />
-      <Outlet />
+      <main className="main_content">
+        <Outlet />
+      </main>
       <Footer />
       
     </>

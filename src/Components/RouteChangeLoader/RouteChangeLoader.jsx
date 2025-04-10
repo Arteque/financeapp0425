@@ -13,7 +13,7 @@ const RouteChangeLoader = () => {
 
         const timeout = setTimeout(() => {
             setLoading(false)
-        }, 500)
+        }, 0)
 
         return () => clearTimeout(timeout)
 

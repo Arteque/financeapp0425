@@ -1,10 +1,6 @@
+import Class from "./ContentCOntainer.module.scss";
+const ContentContainer = ({ children, ...props }) => {
+  return <div className={Class.container} {...props}>{children}</div>;
+};
 
-const ContentContainer = ({children, ...props}) => {
-  return (
-    <div {...props}>
-      {children}
-    </div>
-  )
-}
-
-export default ContentContainer
+export default ContentContainer;

@@ -35,7 +35,7 @@ ul[class] {
   .nav_ul {
     display: flex;
     align-items: flex-end;
-    justify-content: space-evenly;
+    justify-content: space-between;
     .text {
       color: var(--clr-white-100);
       display: none;
@@ -87,7 +87,7 @@ ul[class] {
     padding-block: 40px;
     padding-inline: unset;
     padding-inline-end: 24px;
-    width: 300px;
+    min-width: 300px;
     min-height: 100svh;
     grid-row-start: 1 ;
     grid-row-end: -1;
@@ -99,21 +99,41 @@ ul[class] {
       }
       a{
         flex-flow: row;
+        align-items: center;
         gap: 1rem;
         padding-inline: 24px;
+        padding-block: 1rem;
         width: 100%;
         border-radius: 0 8px 8px 0;
-        border-block:   unset;
+        border-block: unset;
+        border-inline-start: 4px solid transparent;
+        &.current{
+          border-inline-start-color: var(--clr-second-green);
+        }
+        .text{
+          font-size: 16px;
+          display: block;
+        }
       }
     }
   }
 }
 /* Main Header */
+main.main_content, .main_header, .main_footer{
+  padding-inline: 16px;
+  @include mixin.md{
+    padding-inline: 24px;
+  }
+  @include mixin.lg{
+    padding-inline: 0;
+  }
+
+}
 @include mixin.lg{
     main#root {
       display: grid;
       grid-template-columns: 0.2fr 1fr;
       grid-template-rows: 1fr 0.2fr;
-      gap: 2rem;
+      gap: 40px;
   }
 }
