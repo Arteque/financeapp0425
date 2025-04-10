@@ -1,10 +1,13 @@
-import { Link } from "react-router-dom";
+import { useEffect } from "react";
+import { Link, NavLink, useLocation } from "react-router-dom";
 const Navigation = () => {
+
+
   return (
     <nav>
       <ul className="nav_ul">
         <li>
-          <Link className="link current" to="/">
+          <NavLink to="/" data-location="/" className={({isActive}) => (isActive ? 'current':null) + " link"} >
             <span className="icon">
               <svg
                 
@@ -20,10 +23,10 @@ const Navigation = () => {
               </svg>
             </span>
             <span className="text">Overview</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="link" to="/transactions">
+          <NavLink to="/transactions" className={({isActive}) => (isActive ? 'current':null) + " link"} >
             <span className="icon">
               <svg
                 
@@ -39,10 +42,10 @@ const Navigation = () => {
               </svg>
             </span>
             <span className="text">Transactions</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="link" to="/budgets">
+          <NavLink to="/budgets" className={({isActive}) => (isActive ? 'current':null) + " link"} >
             <span className="icon">
               <svg
                 
@@ -58,10 +61,10 @@ const Navigation = () => {
               </svg>
             </span>
             <span className="text">Budgets</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="link" to="/pots">
+          <NavLink to="/pots" className={({isActive}) => (isActive ? 'current':null) + " link"} >
             <span className="icon">
               <svg
                 
@@ -77,10 +80,10 @@ const Navigation = () => {
               </svg>
             </span>
             <span className="text">Pots</span>
-          </Link>
+          </NavLink>
         </li>
         <li>
-          <Link className="link" to="/recurringbills">
+          <NavLink to="/recurring_bills" className={({isActive}) => (isActive ? 'current':null) + " link"} >
             <span className="icon">
               <svg
                 
@@ -96,7 +99,7 @@ const Navigation = () => {
               </svg>
             </span>
             <span className="text">Recurring Bills</span>
-          </Link>
+          </NavLink>
         </li>
       </ul>
     </nav>

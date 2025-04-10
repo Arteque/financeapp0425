@@ -9,6 +9,10 @@ import Start from "./Pages/Start"
 import { LoadingProvider } from './Context/LoadingContext'
 
 import "./Style/Style.scss"
+import Transactions from './Pages/Transactions'
+import Budgets from './Pages/Budgets'
+import Pots from './Pages/Pots'
+import RecurringBills from './Pages/RecurringBills'
 
 const router = createBrowserRouter([
   {
@@ -19,6 +23,26 @@ const router = createBrowserRouter([
       {
       path:"/",
       element:<Start />
+    },
+      {
+      path:"/overview",
+      element:<Start />
+    },
+      {
+      path:"/transactions",
+      element:<Transactions />
+    },
+      {
+      path:"/budgets",
+      element:<Budgets />
+    },
+      {
+      path:"/pots",
+      element:<Pots />
+    },
+      {
+      path:"/recurring_bills",
+      element:<RecurringBills />
     }
   ]
   }

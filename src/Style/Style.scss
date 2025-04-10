@@ -18,3 +18,102 @@ body {
   line-height: 150%;
 }
 
+a {
+  text-decoration: none;
+}
+ul[class] {
+  list-style: none;
+}
+
+/* Main Header */
+.main_header {
+  position: fixed;
+  inset: auto 0 0 0;
+  background: var(--clr-grey-400);
+  border-radius: 8px 8px 0 0;
+  padding-block-start: 8px;
+  .nav_ul {
+    display: flex;
+    align-items: flex-end;
+    justify-content: space-evenly;
+    .text {
+      color: var(--clr-white-100);
+      display: none;
+      font-size:12px;
+      font-weight:  bold;
+      line-height: 150%;
+      @include mixin.md{
+        display: initial;
+      }
+    }
+    .icon {
+      svg {
+        fill: var(--clr-white-100);
+        width: 24px !important;
+        height: 24px !important;
+        object-fit: contain !important;
+        display: block;
+      }
+    }
+    a {
+      padding-inline: 22.3px;
+      padding-block: 8px 12px;
+      display: block;
+      border-radius: 8px 8px 0 0;
+      border-block-end: 4px solid transparent;
+      display: flex;
+      align-items: center;
+      flex-flow: column;
+      gap: 4px;
+      @include mixin.md{
+        padding-inline: 25px;
+      }
+      &.current {
+        background: var(--clr-white-100);
+        border-color: var(--clr-second-green);
+        .text{
+          color:var(--clr-grey-400);
+        }
+        svg {
+          fill: var(--clr-second-green);
+        }
+      }
+    }
+  }
+  @include mixin.lg {
+    position: relative;
+    inset:unset;
+    border-radius: 0 8px 8px 0;
+    padding-block: 40px;
+    padding-inline: unset;
+    padding-inline-end: 24px;
+    width: 300px;
+    min-height: 100svh;
+    grid-row-start: 1 ;
+    grid-row-end: -1;
+    .nav_ul{
+      flex-flow: column;
+      align-items: baseline;
+      li{
+        width: 100%;
+      }
+      a{
+        flex-flow: row;
+        gap: 1rem;
+        padding-inline: 24px;
+        width: 100%;
+        border-radius: 0 8px 8px 0;
+        border-block:   unset;
+      }
+    }
+  }
+}
+/* Main Header */
+@include mixin.lg{
+    main#root {
+      display: grid;
+      grid-template-columns: 0.2fr 1fr;
+      grid-template-rows: 1fr 0.2fr;
+      gap: 2rem;
+  }
+}
