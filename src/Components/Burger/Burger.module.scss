@@ -1,0 +1,23 @@
+@use "../../Style/Variables/mixin";
+
+.burger {
+  display: none;
+  @include mixin.lg {
+    color: var(--clr-grey-200);
+    display: flex;
+    align-items: center;
+    padding-inline-start: 32px;
+    padding-block: 1rem;
+    margin-block-end: 58.24px;
+    gap: 1rem;
+    .icon{
+        display: block;
+    }
+    .text{
+        font-size: 1rem;
+        line-height: 150%;
+        font-weight: bold;
+        transform: translateY(-2px);
+    }
+  }
+}
