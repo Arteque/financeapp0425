@@ -36,7 +36,9 @@ button {
   background: var(--clr-grey-400);
   border-radius: 8px 8px 0 0;
   padding-block-start: 8px;
-  transition: all 0.5s;
+  .text{
+    white-space: nowrap;
+  }
   .nav_ul {
     display: flex;
     align-items: flex-end;
@@ -102,7 +104,7 @@ main.main_content,
 @include mixin.lg {
   main#root {
     display: grid;
-    grid-template-columns: 0.2fr 1fr;
+    grid-template-columns: auto 1fr;
     grid-template-rows: 1fr 0.2fr;
     gap: 40px;
   }
@@ -117,8 +119,8 @@ main.main_content,
     min-height: 100svh;
     grid-row-start: 1;
     grid-row-end: -1;
+    gap: 24px;
     .text, .icon{
-      transition: all 0.3s;
       transform-origin: center center;
     }
     nav {
@@ -127,8 +129,7 @@ main.main_content,
     .nav_ul {
       flex-flow: column;
       align-items: baseline;
-      transition: all 0.3s;
-      li {
+      li{
         width: 100%;
       }
       a {
@@ -152,7 +153,9 @@ main.main_content,
     }
     &.header__close{
       min-width: 0;
-      padding: 0 32px 0 32px;
+      padding: 0;
+      width: fit-content;
+      min-width: 0;
         .main__logo{
           .logo__large{
             display: none !important;
@@ -165,16 +168,13 @@ main.main_content,
       .burger,.nav_ul{
         width: fit-content;
         .text{
-          width: 0;
-          opacity: 0;
-          white-space: nowrap;
-          overflow: hidden;
-          pointer-events: none;
+          display: none;
         }
       }
       .burger{
         .icon{
           rotate: 180deg;
+          transform: translate(1px, 4px);
         }
       }
     }
