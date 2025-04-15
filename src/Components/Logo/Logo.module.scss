@@ -1,7 +1,11 @@
 @use "../../Style/Variables/mixin";
 
 .logo{
-    padding: 40px 0  40px 32px;
+    padding: 40px 0 ;
+    a{
+        padding: 40px 0  40px 32px;
+        overflow: hidden;
+    }
 }
 
 
