@@ -4,16 +4,4 @@
     padding: 40px 0  40px 32px;
 }
 
-.logo__large{
-    display: none;
-}
-
-@include mixin.lg{
-    .logo__large{
-        display: initial;
-    }
-    .logo__small{
-        display: none;
-    }
-}
 
