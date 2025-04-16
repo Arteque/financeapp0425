@@ -1,10 +1,7 @@
+import MainTitle from "../Components/PageTitle/MainTitle";
 
 const RecurringBills = () => {
-  return (
-    <div>
-        Recurring Bills
-    </div>
-  )
-}
+  return <MainTitle>Recurring Bills</MainTitle>;
+};
 
-export default RecurringBills
+export default RecurringBills;

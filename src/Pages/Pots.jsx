@@ -1,10 +1,7 @@
+import MainTitle from "../Components/PageTitle/MainTitle";
 
 const Pots = () => {
-  return (
-    <div>
-        Pots
-    </div>
-  )
-}
+  return <MainTitle>Pots</MainTitle>;
+};
 
-export default Pots
+export default Pots;

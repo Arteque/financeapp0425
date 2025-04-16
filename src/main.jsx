@@ -6,7 +6,6 @@ import Root from './Template/Root'
 import ErrorPage from "./Pages/ErrorPage"
 import Start from "./Pages/Start"
 
-import { LoadingProvider } from './Context/LoadingContext'
 
 import "./Style/Style.scss"
 import Transactions from './Pages/Transactions'
@@ -50,8 +49,6 @@ const router = createBrowserRouter([
 
 createRoot(document.getElementById('root')).render(
   <StrictMode>
-    <LoadingProvider>
       <RouterProvider router={router} />
-    </LoadingProvider>
   </StrictMode>,
 )

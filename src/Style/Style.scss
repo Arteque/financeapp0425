@@ -54,8 +54,10 @@ button {
       }
     }
     .icon {
-      svg {
-        fill: var(--clr-white-100);
+      color: var(--clr-grey-200);
+      transition: all 0.3s;
+      img {
+        opacity: 0;
         width: 24px !important;
         height: 24px !important;
         object-fit: contain !important;
@@ -72,17 +74,22 @@ button {
       align-items: center;
       flex-flow: column;
       gap: 4px;
+      transition: all 1s;
       @include mixin.md {
         padding-inline: 25px;
+      }
+      &:hover{
+        background: var(--clr-grey-300) ;
       }
       &.current {
         background: var(--clr-white-100);
         border-color: var(--clr-second-green);
+        transition: all 0.3s;
         .text {
           color: var(--clr-grey-400);
         }
-        svg {
-          fill: var(--clr-second-green);
+        .icon{
+          color: var(--clr-second-green);
         }
       }
     }

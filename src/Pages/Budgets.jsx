@@ -1,10 +1,7 @@
+import MainTitle from "../Components/PageTitle/MainTitle";
 
 const Budgets = () => {
-  return (
-    <div>
-        Budgets
-    </div>
-  )
-}
+  return <MainTitle>Budgets</MainTitle>;
+};
 
-export default Budgets
+export default Budgets;

@@ -1,17 +1,12 @@
-import ContentContainer from "../Components/ContentContainer/ContentContainer"
 import BlockTitle from "../Components/PageTitle/BlockTitle"
-import PageTitle from "../Components/PageTitle/PageTitle"
+import MainTitle from "../Components/PageTitle/MainTitle"
 
 const Start = () => {
   return (
     <div>
-      <header>
-        <ContentContainer>
-          <PageTitle>
-            Transactions
-          </PageTitle>
-        </ContentContainer>
-      </header>
+      <MainTitle>
+        Overview
+      </MainTitle>
       <BlockTitle>
         Pots
       </BlockTitle>

@@ -1,10 +1,6 @@
-
+import MainTitle from "../Components/PageTitle/MainTitle";
 const Transactions = () => {
-  return (
-    <div>
-      Transactions
-    </div>
-  )
-}
+  return <MainTitle>Transactions</MainTitle>;
+};
 
-export default Transactions
+export default Transactions;
