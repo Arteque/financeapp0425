@@ -27,7 +27,7 @@ const Start = () => {
         </ContentContainer>
       </section>
 
-      <section className="pots_section">
+      <section className="pots_section" style={{ marginBlockEnd: "16px" }}>
         <ContentContainer dark={false} shadow={false} marginBlockEnd={false}>
           {/* Pots Header Data */}
           <Flex between="space-between" itemsCenter="center">
@@ -118,7 +118,9 @@ const Start = () => {
                 }}
               ></div>
               <Flex direction="column" gap="4px">
-                <SmallTitle className={"txt-grey-300"}>Concert Ticket</SmallTitle>
+                <SmallTitle className={"txt-grey-300"}>
+                  Concert Ticket
+                </SmallTitle>
                 <MidTitle>{Currency(110)}</MidTitle>
               </Flex>
             </div>
@@ -142,6 +144,66 @@ const Start = () => {
               </Flex>
             </div>
           </div>
+        </ContentContainer>
+      </section>
+      <section
+        className="transactions_section"
+        style={{ marginBlockEnd: "24px" }}
+      >
+        <ContentContainer>
+          <Flex between="space-between" itemsCenter="center">
+            <MidTitle>Transactions</MidTitle>
+            <SmallTitle>
+              <Link
+                to="/transactions"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <span className="text txt-grey-300">See Details</span>
+                <span className="icon">
+                  <img src="/icon-caret-right.svg" alt="See Details Arrow" />
+                </span>
+              </Link>
+            </SmallTitle>
+          </Flex>
+          <Flex direction="row" between={"space-between"} itemsCenter={"center"}>
+            <Flex
+              direction={"row"}
+              between={"space-between"}
+              itemsCenter={"center"}
+            >
+              <Flex direction={"row"} gap={"16px"} itemsCenter={"center"}>
+                <img
+                  src="/avatars/emma-richardson.jpg"
+                  alt="Emma Richardson"
+                  style={{
+                    width: "32px",
+                    aspectRatio: 1,
+                    overflow: "hidden",
+                    borderRadius: "50%",
+                  }}
+                />
+                <SmallTitle
+                  className={"txt-grey-400"}
+                  style={{ fontWeight: "bold" }}
+                >
+                  Emma Richardson
+                </SmallTitle>
+              </Flex>
+
+              <Flex direction={"column"} gap={"8"}>
+                <MidTitle
+                  className={75.5 >= 0 ? `txt-second-green` : `txt-grey-300`}
+                >
+                  {75.5 >= 0
+                    ? `+${Currency(75.5, true)}`
+                    : `-${Currency(75.5)}`}
+                </MidTitle>
+                <SmallTitle>
+                  19 Aug 2024
+                </SmallTitle>
+              </Flex>
+            </Flex>
+          </Flex>
         </ContentContainer>
       </section>
     </>
