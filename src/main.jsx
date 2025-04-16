@@ -3,15 +3,15 @@ import { createRoot } from 'react-dom/client'
 import { createBrowserRouter, RouterProvider } from 'react-router-dom'
 
 import Root from './Template/Root'
-import ErrorPage from "./Pages/ErrorPage"
-import Start from "./Pages/Start"
+import ErrorPage from "./Pages/Dashboard/ErrorPage"
+import Start from "./Pages/Dashboard/Start"
 
 
 import "./Style/Style.scss"
-import Transactions from './Pages/Transactions'
-import Budgets from './Pages/Budgets'
-import Pots from './Pages/Pots'
-import RecurringBills from './Pages/RecurringBills'
+import Transactions from './Pages/Dashboard/Transactions'
+import Budgets from './Pages/Dashboard/Budgets'
+import Pots from './Pages/Dashboard/Pots'
+import RecurringBills from './Pages/Dashboard/RecurringBills'
 
 const router = createBrowserRouter([
   {

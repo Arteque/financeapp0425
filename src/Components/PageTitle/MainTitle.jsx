@@ -1,17 +1,14 @@
-import ContentContainer from "../ContentContainer/ContentContainer"
-import PageTitle from "./PageTitle"
+import ContentContainer from "../ContentContainer/ContentContainer";
+import PageTitle from "./PageTitle";
 
-
-const MainTitle = ({children, props}) => {
+const MainTitle = ({ children, props }) => {
   return (
     <header {...props}>
-        <ContentContainer>
-            <PageTitle>
-            {children}
-            </PageTitle>
-        </ContentContainer>
+      <ContentContainer>
+        <PageTitle>{children}</PageTitle>
+      </ContentContainer>
     </header>
-  )
-}
+  );
+};
 
-export default MainTitle
+export default MainTitle;

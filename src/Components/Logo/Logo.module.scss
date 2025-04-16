@@ -2,6 +2,10 @@
 
 .logo{
     padding: 40px 0 ;
+    display: none;
+    @include mixin.md{
+        display: block;
+    }
     a{
         padding: 40px 0  40px 32px;
         overflow: hidden;

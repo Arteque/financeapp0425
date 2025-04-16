@@ -1,0 +1,10 @@
+.small__title {
+  font-size: 14px;
+  line-height: 150%;
+  font-weight: normal;
+  &:has(span) span {
+    font-size: 14px;
+    line-height: 150%;
+    font-weight: normal;
+  }
+}

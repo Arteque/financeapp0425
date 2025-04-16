@@ -42,3 +42,13 @@ $colors:(
     }
     --sans: "Public Sans", sans-serif;
 }
+@each $clrs, $values in $colors{
+    @each $clr, $vl in $values{
+        .txt-#{"" + $clrs}-#{"" + $clr}{
+           color: var(--clr-#{"" + $clrs}-#{"" + $clr});
+        }
+        .bg-#{"" + $clrs}-#{"" + $clr}{
+           background: var(--clr-#{"" + $clrs}-#{"" + $clr});
+        }
+    }
+}

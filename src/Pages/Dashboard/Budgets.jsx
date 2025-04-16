@@ -1,4 +1,4 @@
-import MainTitle from "../Components/PageTitle/MainTitle";
+import MainTitle from "../../Components/PageTitle/MainTitle";
 
 const Budgets = () => {
   return <MainTitle>Budgets</MainTitle>;

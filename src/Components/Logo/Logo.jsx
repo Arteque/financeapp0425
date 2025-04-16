@@ -9,11 +9,6 @@ const Logo = () => {
           alt="Finace Large Logo "
           className={`${Class.logo__large} logo__large `}
         />
-        <img
-          src="./logo-small.svg"
-          alt="Finance Small Logo"
-          className={`${Class.logo__small} logo__small`}
-        />
       </Link>
     </div>
   );
