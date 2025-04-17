@@ -1,14 +1,27 @@
+//React imports
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
+
+//Components
 import ContentContainer from "../../Components/ContentContainer/ContentContainer";
 import Flex from "../../Components/Layouts/Flex";
 import MainTitle from "../../Components/PageTitle/MainTitle";
 import MidTitle from "../../Components/PageTitle/MidTitle";
 import PageTitle from "../../Components/PageTitle/PageTitle";
 import SmallTitle from "../../Components/PageTitle/SmallTitle";
+import Avatar from "../../Components/Avatar/Avatar";
 
+//Utilities
 import Currency from "../../Services/Currency";
+import DateFormater from "../../Services/DateFormater";
+
+//Test Data. The real data will be fetched from the API
+import Data from "../../API/data.json";
 
 const Start = () => {
+  const transactions = Data.transactions;
+  const transactionsMax = 4;
+
   return (
     <>
       <MainTitle>Overview</MainTitle>
@@ -151,7 +164,12 @@ const Start = () => {
         style={{ marginBlockEnd: "24px" }}
       >
         <ContentContainer>
-          <Flex between="space-between" itemsCenter="center">
+          {/* Transactions Header Data */}
+          <Flex
+            className="Start__transactions__header"
+            between="space-between"
+            itemsCenter="center"
+          >
             <MidTitle>Transactions</MidTitle>
             <SmallTitle>
               <Link
@@ -165,45 +183,111 @@ const Start = () => {
               </Link>
             </SmallTitle>
           </Flex>
-          <Flex direction="row" between={"space-between"} itemsCenter={"center"}>
-            <Flex
-              direction={"row"}
-              between={"space-between"}
-              itemsCenter={"center"}
-            >
-              <Flex direction={"row"} gap={"16px"} itemsCenter={"center"}>
-                <img
-                  src="/avatars/emma-richardson.jpg"
-                  alt="Emma Richardson"
-                  style={{
-                    width: "32px",
-                    aspectRatio: 1,
-                    overflow: "hidden",
-                    borderRadius: "50%",
-                  }}
-                />
-                <SmallTitle
-                  className={"txt-grey-400"}
-                  style={{ fontWeight: "bold" }}
-                >
-                  Emma Richardson
-                </SmallTitle>
-              </Flex>
+          {/* Transaction list START */}
+          <Flex
+            direction="column"
+            between={"space-between"}
+            itemsCenter={"center"}
+          >
+            {transactions &&
+              transactions.length > 0 &&
+              transactions.map(
+                ({ avatar, name, category, date, amount, recurring }, index) =>
+                  index <= transactionsMax && (
+                    <div
+                      key={index}
+                      className="transactions_item_container"
+                      style={{
+                        width: "100%",
+                        paddingBlock: "24px",
+                        borderBlockEnd: "1px solid var(--clr-grey-100)",
+                      }}
+                      data-recurring={recurring}
+                    >
+                      <Flex
+                        direction={"row"}
+                        between={"space-between"}
+                        itemsCenter={"center"}
+                        width={"100%"}
+                      >
+                        <Flex
+                          direction={"row"}
+                          gap={"16px"}
+                          itemsCenter={"center"}
+                        >
+                          <Avatar src={"/avatars/" + avatar} alt={name} />
 
-              <Flex direction={"column"} gap={"8"}>
-                <MidTitle
-                  className={75.5 >= 0 ? `txt-second-green` : `txt-grey-300`}
-                >
-                  {75.5 >= 0
-                    ? `+${Currency(75.5, true)}`
-                    : `-${Currency(75.5)}`}
-                </MidTitle>
-                <SmallTitle>
-                  19 Aug 2024
-                </SmallTitle>
-              </Flex>
-            </Flex>
+                          <SmallTitle className={"txt-grey-400"}>
+                            <b>{name}</b>
+                          </SmallTitle>
+                        </Flex>
+
+                        <ul
+                          className="transactions__amount_date"
+                          style={{ textAlign: "right" }}
+                        >
+                          <li
+                            className={
+                              `${amount}` >= 0
+                                ? ` txt-second-green`
+                                : ` txt-grey-300`
+                            }
+                          >
+                            <b
+                              style={{
+                                fontSize: "14px",
+                                fontWeight: "700",
+                                lineHeight: "150%",
+                              }}
+                            >
+                              {amount >= 0 && `+`}
+                              {Currency(amount, true)}
+                            </b>
+                          </li>
+                          <li
+                            className={" txt-grey-300"}
+                            style={{
+                              fontSize: "12px",
+                              fontWeight: "normal",
+                              lineHeight: "150%",
+                            }}
+                          >
+                            {DateFormater(date)}
+                          </li>
+                        </ul>
+                      </Flex>
+                    </div>
+                  )
+              )}
           </Flex>
+          {/* Transaction list END */}
+        </ContentContainer>
+      </section>
+
+      <section className="buddgets_section" style={{ marginBlockEnd: "24px" }}>
+        <ContentContainer>
+          {/* Budgets Header Data */}
+          <Flex
+            className="Start__transactions__header"
+            between="space-between"
+            itemsCenter="center"
+          >
+            <MidTitle>Budgets</MidTitle>
+            <SmallTitle>
+              <Link
+                to="/budgets"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <span className="text txt-grey-300">See Details</span>
+                <span className="icon">
+                  <img src="/icon-caret-right.svg" alt="See Details Arrow" />
+                </span>
+              </Link>
+            </SmallTitle>
+          </Flex>
+          {/* Budgets Data Start*/}
+          
+          {/* Budgets Data End*/}
         </ContentContainer>
       </section>
     </>
