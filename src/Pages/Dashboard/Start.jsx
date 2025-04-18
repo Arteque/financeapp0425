@@ -17,10 +17,27 @@ import DateFormater from "../../Services/DateFormater";
 
 //Test Data. The real data will be fetched from the API
 import Data from "../../API/data.json";
+import Doughnut from "../../Components/Charts/Doughnut";
 
 const Start = () => {
   const transactions = Data.transactions;
   const transactionsMax = 4;
+
+  // get the budgets data
+  const budgets = Data.budgets;
+
+  // get the categories used in the budgets table
+  const budgetsCategories = budgets.map(({ category }) => category);
+  
+  // budgetsCategories used in the transactions table and group them by category
+  const transactionsCategories = budgetsCategories.map((item) => {
+    const filteredTransactions = transactions.filter(transaction => {
+      if(transaction.category== item) return transaction
+    })
+    return filteredTransactions
+  })
+
+  console.log(transactionsCategories)
 
   return (
     <>
@@ -195,7 +212,7 @@ const Start = () => {
                 ({ avatar, name, category, date, amount, recurring }, index) =>
                   index <= transactionsMax && (
                     <div
-                      key={index}
+                      key={index} data-category={category}
                       className="transactions_item_container"
                       style={{
                         width: "100%",
@@ -286,7 +303,41 @@ const Start = () => {
             </SmallTitle>
           </Flex>
           {/* Budgets Data Start*/}
-          
+          <div className="chart__container" style={{ position: "relative" }}>
+            <Doughnut />
+            <h3
+              style={{
+                fontSize:'2rem',
+                lineHeight:'120%',
+                fontWeight:'bold',
+                position:'absolute',
+                inset: '50% auto auto 50%',
+                transform:'translate(-50%,-50%)',
+              }}
+            >
+              <span
+                style={{
+                  display: "flex",
+                  flexDirection: "column",
+                  gap: "8px",
+                  justifyContent: "center",
+                  alignItems: "center",
+                }}
+              >
+                <span>{Currency(338)} </span>
+                <small
+                  className="txt-grey-300"
+                  style={{
+                    fontSize: "12px",
+                    fontWeight: "normal",
+                    lineHeight: "150%",
+                  }}
+                >
+                  of {Currency(975)} limit
+                </small>
+              </span>
+            </h3>
+          </div>
           {/* Budgets Data End*/}
         </ContentContainer>
       </section>
