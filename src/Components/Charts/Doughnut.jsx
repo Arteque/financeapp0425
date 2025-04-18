@@ -20,6 +20,8 @@ const Doughnut= () => {
                 label: "Budget",
                 data: budgets.map(({maximum}) => maximum),
                 backgroundColor: budgets.map(({theme})=>theme),
+                AnimationEffect: 'none',
+                borderWidth: 0,
                 cutout:'65%'
             },
         ],

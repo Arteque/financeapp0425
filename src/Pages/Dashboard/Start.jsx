@@ -14,30 +14,24 @@ import Avatar from "../../Components/Avatar/Avatar";
 //Utilities
 import Currency from "../../Services/Currency";
 import DateFormater from "../../Services/DateFormater";
+import {TransactionsData, BudgetsData} from "../../Services/FinanceCalculations";
 
 //Test Data. The real data will be fetched from the API
-import Data from "../../API/data.json";
 import Doughnut from "../../Components/Charts/Doughnut";
 
+
+
+
 const Start = () => {
-  const transactions = Data.transactions;
+
+  
+
+  const transactions = TransactionsData();
   const transactionsMax = 4;
 
   // get the budgets data
-  const budgets = Data.budgets;
-
-  // get the categories used in the budgets table
-  const budgetsCategories = budgets.map(({ category }) => category);
+  const budgets = BudgetsData();
   
-  // budgetsCategories used in the transactions table and group them by category
-  const transactionsCategories = budgetsCategories.map((item) => {
-    const filteredTransactions = transactions.filter(transaction => {
-      if(transaction.category== item) return transaction
-    })
-    return filteredTransactions
-  })
-
-  console.log(transactionsCategories)
 
   return (
     <>
