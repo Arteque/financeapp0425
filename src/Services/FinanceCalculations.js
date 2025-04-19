@@ -33,11 +33,62 @@ const TransactionsData = () => {
     return transactions
 };
 
+//pots
+const PotsData = () => {
+    const pots = getData().pots
+    // Calculate the total amount in pots
+    const potsSavingTotal = pots.reduce((accumulator, potTotal) => accumulator + potTotal.total, 0)
+    
+    return {pots, potsSavingTotal}
+  }
+
 //Budgets
 const BudgetsData = () => {
-    const budgets = getData().budgets
-    return budgets
+    // get the budget data and the transactions data
+    const {transactions, budgets} = getData()
+
+    console.log(budgets)
+    //Extract the categories from the budget list
+    const budgetsCategories = budgets.map(({category}) => category)
+
+    // Get total budgets
+    const budgetsTotal = budgets.reduce((acc, budget) => acc + budget.maximum,0)
+
+    //get the transactions total maount
+    const transactionsBudgetTotal = transactions.reduce((acc, transaction) => {
+      if(budgetsCategories.includes(transaction.category)) {
+        return acc + Math.abs(transaction.amount)
+      }
+      return acc 
+    },0)
+
+    //Sort the transactions data to the budgets
+    const sortTransactionsToBudgets = budgetsCategories.map((category) => {
+      const matchingTransactions = transactions.filter( transaction => {
+       return transaction.category === category
+      })
+      return{
+        category,
+        transactions: matchingTransactions
+      }
+    })
+
+
+     //  get the total amoun for evry category
+    const budgetsCategoriesTransactionTotalAmout = sortTransactionsToBudgets.map(item => {
+      // console.log(item)
+      const transactionsTotal = item.transactions.reduce((acc, transaction) => acc + Math.abs(transaction.amount),0)
+      
+      return {category: item.category, total:transactionsTotal}
+    })
+
+
+    return {transactions, budgets, budgetsTotal, transactionsBudgetTotal, sortTransactionsToBudgets, budgetsCategoriesTransactionTotalAmout }
 }
 
+// Budgets from Transactions
 
-export {TransactionsData, BudgetsData};
+
+
+//Exporting the functions
+export {TransactionsData, PotsData, BudgetsData};

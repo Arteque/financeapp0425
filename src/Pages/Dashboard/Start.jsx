@@ -14,24 +14,24 @@ import Avatar from "../../Components/Avatar/Avatar";
 //Utilities
 import Currency from "../../Services/Currency";
 import DateFormater from "../../Services/DateFormater";
-import {TransactionsData, BudgetsData} from "../../Services/FinanceCalculations";
+import {
+  TransactionsData,
+  BudgetsData,
+  PotsData,
+} from "../../Services/FinanceCalculations";
 
 //Test Data. The real data will be fetched from the API
 import Doughnut from "../../Components/Charts/Doughnut";
-
-
-
+import LeftLine from "../../Components/LeftLine/LeftLine";
 
 const Start = () => {
-
-  
-
   const transactions = TransactionsData();
   const transactionsMax = 4;
 
+  const pots = PotsData();
+
   // get the budgets data
   const budgets = BudgetsData();
-  
 
   return (
     <>
@@ -76,7 +76,7 @@ const Start = () => {
               </div>
               <Flex direction="column" gap="11px">
                 <SmallTitle>Total Saved</SmallTitle>
-                <PageTitle>{Currency(850)}</PageTitle>
+                <PageTitle>{Currency(pots.potsSavingTotal)}</PageTitle>
               </Flex>
             </Flex>
           </ContentContainer>
@@ -89,87 +89,22 @@ const Start = () => {
               gap: "1rem",
             }}
           >
-            {/* Savings Small */}
-            <div
-              className="saving__small"
-              style={{ position: "relative", paddingInlineStart: "20px" }}
-            >
-              <div
-                className="sabing__smal--color bg-second-green"
-                style={{
-                  position: "absolute",
-                  inset: "0 auto 0 0",
-                  width: "4px",
-                  borderRadius: "10px",
-                }}
-              ></div>
-              <Flex direction="column" gap="4px">
-                <SmallTitle className={"txt-grey-300"}>Savings</SmallTitle>
-                <MidTitle>{Currency(159)}</MidTitle>
-              </Flex>
-            </div>
-            {/* Savings Small */}
-            <div
-              className="saving__small"
-              style={{ position: "relative", paddingInlineStart: "20px" }}
-            >
-              <div
-                className="sabing__smal--color bg-second-cyan"
-                style={{
-                  position: "absolute",
-                  inset: "0 auto 0 0",
-                  width: "4px",
-                  borderRadius: "10px",
-                }}
-              ></div>
-              <Flex direction="column" gap="4px">
-                <SmallTitle className={"txt-grey-300"}>Gift</SmallTitle>
-                <MidTitle>{Currency(40)}</MidTitle>
-              </Flex>
-            </div>
-            {/* Savings Small */}
-            <div
-              className="saving__small"
-              style={{ position: "relative", paddingInlineStart: "20px" }}
-            >
-              <div
-                className="sabing__smal--color bg-second-navy"
-                style={{
-                  position: "absolute",
-                  inset: "0 auto 0 0",
-                  width: "4px",
-                  borderRadius: "10px",
-                }}
-              ></div>
-              <Flex direction="column" gap="4px">
-                <SmallTitle className={"txt-grey-300"}>
-                  Concert Ticket
-                </SmallTitle>
-                <MidTitle>{Currency(110)}</MidTitle>
-              </Flex>
-            </div>
-            {/* Savings Small */}
-            <div
-              className="saving__small"
-              style={{ position: "relative", paddingInlineStart: "20px" }}
-            >
-              <div
-                className="sabing__smal--color bg-second-yellow"
-                style={{
-                  position: "absolute",
-                  inset: "0 auto 0 0",
-                  width: "4px",
-                  borderRadius: "10px",
-                }}
-              ></div>
-              <Flex direction="column" gap="4px">
-                <SmallTitle className={"txt-grey-300"}>New Laptop</SmallTitle>
-                <MidTitle>{Currency(10)}</MidTitle>
-              </Flex>
-            </div>
+            {pots.pots &&
+              pots.pots.length > 0 &&
+              pots.pots.map(({ name, total, theme }, index) => (
+                // Pots Data
+                <LeftLine
+                  name={name}
+                  total={Currency(total)}
+                  theme={theme}
+                  key={index}
+                />
+              ))}
           </div>
         </ContentContainer>
       </section>
+      {/* Pots Section End */}
+      {/* Transactions Section Start */}
       <section
         className="transactions_section"
         style={{ marginBlockEnd: "24px" }}
@@ -206,7 +141,8 @@ const Start = () => {
                 ({ avatar, name, category, date, amount, recurring }, index) =>
                   index <= transactionsMax && (
                     <div
-                      key={index} data-category={category}
+                      key={index}
+                      data-category={category}
                       className="transactions_item_container"
                       style={{
                         width: "100%",
@@ -276,6 +212,7 @@ const Start = () => {
       </section>
 
       <section className="buddgets_section" style={{ marginBlockEnd: "24px" }}>
+        {/* Budgets Section start */}
         <ContentContainer>
           {/* Budgets Header Data */}
           <Flex
@@ -296,44 +233,69 @@ const Start = () => {
               </Link>
             </SmallTitle>
           </Flex>
-          {/* Budgets Data Start*/}
-          <div className="chart__container" style={{ position: "relative" }}>
-            <Doughnut />
-            <h3
-              style={{
-                fontSize:'2rem',
-                lineHeight:'120%',
-                fontWeight:'bold',
-                position:'absolute',
-                inset: '50% auto auto 50%',
-                transform:'translate(-50%,-50%)',
-              }}
-            >
-              <span
+          <div className="budgets_content__container">
+            {/* Budgets Data Start*/}
+            <div className="chart__container" style={{ position: "relative" }}>
+              {/* Chart Doughnut */}
+              <Doughnut />
+              {/* data inside the Doughnut element */}
+              <h3
                 style={{
-                  display: "flex",
-                  flexDirection: "column",
-                  gap: "8px",
-                  justifyContent: "center",
-                  alignItems: "center",
+                  fontSize: "2rem",
+                  lineHeight: "120%",
+                  fontWeight: "bold",
+                  position: "absolute",
+                  inset: "50% auto auto 50%",
+                  transform: "translate(-50%,-50%)",
                 }}
               >
-                <span>{Currency(338)} </span>
-                <small
-                  className="txt-grey-300"
+                <span
                   style={{
-                    fontSize: "12px",
-                    fontWeight: "normal",
-                    lineHeight: "150%",
+                    display: "flex",
+                    flexDirection: "column",
+                    gap: "8px",
+                    justifyContent: "center",
+                    alignItems: "center",
                   }}
                 >
-                  of {Currency(975)} limit
-                </small>
-              </span>
-            </h3>
+                  <span>{Currency(budgets.transactionsBudgetTotal)} </span>
+                  <small
+                    className="txt-grey-300"
+                    style={{
+                      fontSize: "12px",
+                      fontWeight: "normal",
+                      lineHeight: "150%",
+                    }}
+                  >
+                    of {Currency(budgets.budgetsTotal)} limit
+                  </small>
+                </span>
+              </h3>
+            </div>
+            <div
+              className="budgets_items__container"
+              style={{ display: "flex", flexFlow: "row wrap", gap: "8px", marginBlock:'1rem' }}
+            >
+              {budgets.budgets &&
+                budgets.budgets.length > 0 &&
+                budgets.budgets.map(({ category, maximum, theme }, index) => (
+                  <div
+                    className="budgets_item__Container"
+                    key={index}
+                    style={{ flexBasis: "1", flexGrow: 1, width: "45%" }}
+                  >
+                    <LeftLine
+                      name={category}
+                      total={Currency(maximum)}
+                      theme={theme}
+                    />
+                  </div>
+                ))}
+            </div>
+            {/* Budgets Data End*/}
           </div>
-          {/* Budgets Data End*/}
         </ContentContainer>
+        {/* Budgets Section start */}
       </section>
     </>
   );
