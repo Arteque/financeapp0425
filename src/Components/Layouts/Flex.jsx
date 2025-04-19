@@ -1,4 +1,14 @@
-const Flex = ({ children, direction, between, itemsCenter, gap, width,margin, props }) => {
+const Flex = ({
+  children,
+  direction,
+  between,
+  itemsCenter,
+  gap,
+  width,
+  margin,
+  className,
+  props,
+}) => {
   return (
     <div
       style={{
@@ -10,6 +20,7 @@ const Flex = ({ children, direction, between, itemsCenter, gap, width,margin, pr
         gap: gap ? gap : null,
         margin: margin ? margin : null,
       }}
+      className={className}
       {...props}
     >
       {children}

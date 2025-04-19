@@ -47,7 +47,6 @@ const BudgetsData = () => {
     // get the budget data and the transactions data
     const {transactions, budgets} = getData()
 
-    console.log(budgets)
     //Extract the categories from the budget list
     const budgetsCategories = budgets.map(({category}) => category)
 
@@ -86,9 +85,14 @@ const BudgetsData = () => {
     return {transactions, budgets, budgetsTotal, transactionsBudgetTotal, sortTransactionsToBudgets, budgetsCategoriesTransactionTotalAmout }
 }
 
-// Budgets from Transactions
 
+const recurringBillsData = () => {
+  // get recurring bills from getData()
+  const data = getData().transactions
+  const recurringBills = data.filter(data => data.recurring)
+  return recurringBills
+}
 
 
 //Exporting the functions
-export {TransactionsData, PotsData, BudgetsData};
+export {TransactionsData, PotsData, BudgetsData, recurringBillsData};

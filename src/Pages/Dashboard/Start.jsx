@@ -18,6 +18,7 @@ import {
   TransactionsData,
   BudgetsData,
   PotsData,
+  recurringBillsData,
 } from "../../Services/FinanceCalculations";
 
 //Test Data. The real data will be fetched from the API
@@ -33,6 +34,8 @@ const Start = () => {
   // get the budgets data
   const budgets = BudgetsData();
 
+  //Recuring Bills
+  const recurringBills = recurringBillsData();
   return (
     <>
       <MainTitle>Overview</MainTitle>
@@ -274,7 +277,12 @@ const Start = () => {
             </div>
             <div
               className="budgets_items__container"
-              style={{ display: "flex", flexFlow: "row wrap", gap: "8px", marginBlock:'1rem' }}
+              style={{
+                display: "flex",
+                flexFlow: "row wrap",
+                gap: "8px",
+                marginBlock: "1rem",
+              }}
             >
               {budgets.budgets &&
                 budgets.budgets.length > 0 &&
@@ -296,6 +304,50 @@ const Start = () => {
           </div>
         </ContentContainer>
         {/* Budgets Section start */}
+      </section>
+      <section
+        className="recurringbills_section"
+        style={{ marginBlockEnd: "4rem" }}
+      >
+        <ContentContainer>
+          {/* Recurring Bills Header Data */}
+          <Flex
+            className="Start__transactions__header"
+            between="space-between"
+            itemsCenter="center"
+          >
+            <MidTitle>Recurring Bills</MidTitle>
+            <SmallTitle>
+              <Link
+                to="/recurring_bills"
+                style={{ display: "flex", alignItems: "center", gap: "12px" }}
+              >
+                <span className="text txt-grey-300">See Details</span>
+                <span className="icon">
+                  <img src="/icon-caret-right.svg" alt="See Details Arrow" />
+                </span>
+              </Link>
+            </SmallTitle>
+          </Flex>
+
+          {/* Recurring Bills Content Start */}
+          <div
+            className="bg-beige-100"
+            style={{
+              padding: "24px 1rem",
+              borderRadius: "8px",
+              borderInlineStart: "4px solid var(--clr-second-green)",
+            }}
+          >
+            <Flex between="space-between" itemsCenter="center">
+              <SmallTitle className="txt-grey-300">Padi Bills</SmallTitle>
+              <SmallTitle style={{ fontWeight: "bold" }}>
+                {Currency(190)}
+              </SmallTitle>
+            </Flex>
+          </div>
+          {/* Recurring Bills Content End */}
+        </ContentContainer>
       </section>
     </>
   );
