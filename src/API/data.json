@@ -369,7 +369,7 @@
             "avatar": "elevate-education.jpg",
             "name": "Elevate Education",
             "category": "Education",
-            "date": "2024-04-19T20:57:55Z",
+            "date": "2024-04-24T20:57:55Z",
             "amount": -50.00,
             "recurring": true
         },
@@ -385,7 +385,7 @@
             "avatar": "spark-electric-solutions.jpg",
             "name": "Spark Electric Solutions",
             "category": "Bills",
-            "date": "2024-04-23T09:25:51Z",
+            "date": "2024-04-26T09:25:51Z",
             "amount": -100.00,
             "recurring": true
         },

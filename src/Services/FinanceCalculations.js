@@ -132,9 +132,8 @@ const recurringBillsData = () => {
   });
 
   // PaidBills Total
-  const paidBillsTotal = currentMontPaidBills.reduce(
-    (acc, bill) => bill.paidBill && acc + Math.abs(bill.amount),
-    0
+  const paidBillsTotal = currentMontPaidBills.reduce((acc, bill) =>
+    bill.paidBill ? (acc + Math.abs(bill.amount), 0) : 0
   );
 
   // Upcoming bills Total
@@ -168,7 +167,15 @@ const recurringBillsData = () => {
     return acc;
   }, 0);
 
-  return recurringBills;
+  console.log(currentMontPaidBills);
+
+  return (
+    recurringBills,
+    currentMontPaidBills,
+    paidBillsTotal,
+    upcomingBillsTotal,
+    dueSoonBillsTotal
+  );
 };
 
 //Exporting the functions

@@ -57,7 +57,11 @@ const Start = () => {
       <section className="pots_section" style={{ marginBlockEnd: "16px" }}>
         <ContentContainer dark={false} shadow={false} marginBlockEnd={false}>
           {/* Pots Header Data */}
-          <Flex between="space-between" itemsCenter="center">
+          <Flex
+            between="space-between"
+            itemsCenter="center"
+            margin="0 0 32px 0"
+          >
             <MidTitle>Pots</MidTitle>
             <SmallTitle>
               <Link
@@ -118,6 +122,7 @@ const Start = () => {
             className="Start__transactions__header"
             between="space-between"
             itemsCenter="center"
+            margin="0 0 32px 0"
           >
             <MidTitle>Transactions</MidTitle>
             <SmallTitle>
@@ -222,6 +227,7 @@ const Start = () => {
             className="Start__transactions__header"
             between="space-between"
             itemsCenter="center"
+            margin="0 0 32px 0"
           >
             <MidTitle>Budgets</MidTitle>
             <SmallTitle>
@@ -315,6 +321,7 @@ const Start = () => {
             className="Start__transactions__header"
             between="space-between"
             itemsCenter="center"
+            margin="0 0 32px 0"
           >
             <MidTitle>Recurring Bills</MidTitle>
             <SmallTitle>
@@ -340,9 +347,43 @@ const Start = () => {
             }}
           >
             <Flex between="space-between" itemsCenter="center">
-              <SmallTitle className="txt-grey-300">Padi Bills</SmallTitle>
+              <SmallTitle className="txt-grey-300">Paid Bills</SmallTitle>
               <SmallTitle style={{ fontWeight: "bold" }}>
-                {Currency(190)}
+                {Currency(recurringBills.paidBillsTotal, 2)}
+              </SmallTitle>
+            </Flex>
+          </div>
+          {/* Recurring Bills Content End */}
+          {/* Recurring Bills Content Start */}
+          <div
+            className="bg-beige-100"
+            style={{
+              padding: "24px 1rem",
+              borderRadius: "8px",
+              borderInlineStart: "4px solid var(--clr-second-yellow)",
+            }}
+          >
+            <Flex between="space-between" itemsCenter="center">
+              <SmallTitle className="txt-grey-300">Total Upcoming</SmallTitle>
+              <SmallTitle style={{ fontWeight: "bold" }}>
+                {Currency(190.98, 2)}
+              </SmallTitle>
+            </Flex>
+          </div>
+          {/* Recurring Bills Content End */}
+          {/* Recurring Bills Content Start */}
+          <div
+            className="bg-beige-100"
+            style={{
+              padding: "24px 1rem",
+              borderRadius: "8px",
+              borderInlineStart: "4px solid var(--clr-second-cyan)",
+            }}
+          >
+            <Flex between="space-between" itemsCenter="center">
+              <SmallTitle className="txt-grey-300">Due Soon</SmallTitle>
+              <SmallTitle style={{ fontWeight: "bold" }}>
+                {Currency(59.98, 2)}
               </SmallTitle>
             </Flex>
           </div>
