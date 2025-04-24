@@ -117,7 +117,6 @@ main.main_content,
   main#root {
     display: grid;
     grid-template-columns: auto 1fr;
-    // grid-template-rows: 1fr 0.2fr;
     gap: 40px;
   }
   .main_header {
@@ -224,4 +223,7 @@ main.main_content,
       }
     }
   }
+}
+main.main_content {
+  width: clamp(300px, 100% - 40px, 1060px);
 }
