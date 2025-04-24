@@ -366,7 +366,7 @@ const Start = () => {
             <Flex between="space-between" itemsCenter="center">
               <SmallTitle className="txt-grey-300">Total Upcoming</SmallTitle>
               <SmallTitle style={{ fontWeight: "bold" }}>
-                {Currency(190.98, 2)}
+                {Currency(recurringBills.upcomingBillsTotal, 2)}
               </SmallTitle>
             </Flex>
           </div>
@@ -383,7 +383,7 @@ const Start = () => {
             <Flex between="space-between" itemsCenter="center">
               <SmallTitle className="txt-grey-300">Due Soon</SmallTitle>
               <SmallTitle style={{ fontWeight: "bold" }}>
-                {Currency(59.98, 2)}
+                {Currency(recurringBills.dueSoonBillsTotal, 2)}
               </SmallTitle>
             </Flex>
           </div>

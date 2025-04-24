@@ -14,7 +14,6 @@ const Root = () => {
       <main className="main_content">
         <Outlet />
       </main>
-      <Footer />
     </>
   );
 };

@@ -16,7 +16,7 @@ body {
   font-weight: normal;
   font-size: 1rem;
   line-height: 150%;
-  background:var(--clr-beige-100);
+  background: var(--clr-beige-100);
 }
 
 a {
@@ -30,7 +30,7 @@ button {
   border: unset;
   cursor: pointer;
 }
-section{
+section {
   margin-block-end: 32px;
 }
 /* Main Header */
@@ -83,8 +83,8 @@ section{
       @include mixin.md {
         padding-inline: 25px;
       }
-      &:hover{
-        background: var(--clr-grey-300) ;
+      &:hover {
+        background: var(--clr-grey-300);
       }
       &.current {
         background: var(--clr-white-100);
@@ -93,7 +93,7 @@ section{
         .text {
           color: var(--clr-grey-400);
         }
-        .icon{
+        .icon {
           color: var(--clr-second-green);
         }
       }
@@ -117,7 +117,7 @@ main.main_content,
   main#root {
     display: grid;
     grid-template-columns: auto 1fr;
-    grid-template-rows: 1fr 0.2fr;
+    // grid-template-rows: 1fr 0.2fr;
     gap: 40px;
   }
   .main_header {

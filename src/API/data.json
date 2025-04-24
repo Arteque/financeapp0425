@@ -9,7 +9,7 @@
             "avatar": "emma-richardson.jpg",
             "name": "Emma Richardson",
             "category": "General",
-            "date": "2024-08-19T14:23:11Z",
+            "date": "2024-04-19T14:23:11Z",
             "amount": 75.50,
             "recurring": false
         },
@@ -17,7 +17,7 @@
             "avatar": "savory-bites-bistro.jpg",
             "name": "Savory Bites Bistro",
             "category": "Dining Out",
-            "date": "2024-08-19T20:23:11Z",
+            "date": "2024-04-10T20:23:11Z",
             "amount": -55.50,
             "recurring": false
         },
@@ -81,8 +81,8 @@
             "avatar": "pixel-playground.jpg",
             "name": "Pixel Playground",
             "category": "Entertainment",
-            "date": "2024-08-11T18:45:38Z",
-            "amount": -10.00,
+            "date": "2024-04-26T18:45:38Z",
+            "amount": -25.59,
             "recurring": true
         },
         {
