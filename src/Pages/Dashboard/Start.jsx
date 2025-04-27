@@ -15,6 +15,7 @@ import Avatar from "../../Components/Avatar/Avatar";
 import Currency from "../../Services/Currency";
 import DateFormater from "../../Services/DateFormater";
 import {
+  BalanceData,
   TransactionsData,
   BudgetsData,
   PotsData,
@@ -26,6 +27,8 @@ import Doughnut from "../../Components/Charts/Doughnut";
 import LeftLine from "../../Components/LeftLine/LeftLine";
 
 const Start = () => {
+  const balance = BalanceData();
+
   const transactions = TransactionsData();
   const transactionsMax = 4;
 
@@ -42,15 +45,15 @@ const Start = () => {
       <section className="top_section">
         <ContentContainer colorMode="dark" shadow={true} marginBlockEnd={true}>
           <SmallTitle>Current Balance</SmallTitle>
-          <PageTitle>{Currency(4836, 2)}</PageTitle>
+          <PageTitle>{Currency(balance.current, 2)}</PageTitle>
         </ContentContainer>
         <ContentContainer colorMode="light" shadow={true} marginBlockEnd={true}>
           <SmallTitle className={" txt-grey-300"}>Income</SmallTitle>
-          <PageTitle>{Currency(3814.25, 2)}</PageTitle>
+          <PageTitle>{Currency(balance.income, 2)}</PageTitle>
         </ContentContainer>
         <ContentContainer colorMode="light" shadow={true}>
           <SmallTitle className={" txt-grey-300"}>Expenses</SmallTitle>
-          <PageTitle>{Currency(1700.5, 2)}</PageTitle>
+          <PageTitle>{Currency(balance.expenses, 2)}</PageTitle>
         </ContentContainer>
       </section>
 

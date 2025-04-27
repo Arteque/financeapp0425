@@ -13,7 +13,6 @@ const getData = async () => {
     .then((response) => response.json())
     .then((data) => {
         // Handle the data received from the API
-        console.log("Data fetched successfully:");
         financeData = data;
     })
     .catch((error) => {
@@ -31,7 +30,15 @@ const getData = () => {
 const getDate = () => {
   return new Date();
 };
+//Balance
+const BalanceData = () => {
+  const balance = getData().balance;
+  const depencesData = recurringBillsData();
 
+  console.log(depencesData);
+
+  return balance;
+};
 //Transactions
 const TransactionsData = () => {
   const transactions = getData().transactions;
@@ -83,7 +90,6 @@ const BudgetsData = () => {
   //  get the total amoun for evry category
   const budgetsCategoriesTransactionTotalAmout = sortTransactionsToBudgets.map(
     (item) => {
-      // console.log(item)
       const transactionsTotal = item.transactions.reduce(
         (acc, transaction) => acc + Math.abs(transaction.amount),
         0
@@ -167,8 +173,6 @@ const recurringBillsData = () => {
     return acc;
   }, 0);
 
-  console.log(currentMontPaidBills);
-
   return {
     recurringBills,
     currentMontPaidBills,
@@ -179,4 +183,10 @@ const recurringBillsData = () => {
 };
 
 //Exporting the functions
-export { TransactionsData, PotsData, BudgetsData, recurringBillsData };
+export {
+  BalanceData,
+  TransactionsData,
+  PotsData,
+  BudgetsData,
+  recurringBillsData,
+};
