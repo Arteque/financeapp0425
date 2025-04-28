@@ -132,6 +132,11 @@ main.main_content,
     grid-row-end: -1;
     // gap: 24px;
     transition: all 0.3s;
+    @include mixin.md {
+      position: sticky;
+      top: 0;
+      height: 100dvh;
+    }
     .burger {
       position: relative;
       .icon {
@@ -225,5 +230,5 @@ main.main_content,
   }
 }
 main.main_content {
-  width: clamp(300px, 100% - 40px, 1060px);
+  max-width: 1060px;
 }

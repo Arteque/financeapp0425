@@ -1,7 +1,7 @@
 import ContentContainer from "../ContentContainer/ContentContainer";
 import PageTitle from "./PageTitle";
 
-const MainTitle = ({ children, props }) => {
+const MainTitle = ({ children, ...props }) => {
   return (
     <header {...props}>
       <ContentContainer>

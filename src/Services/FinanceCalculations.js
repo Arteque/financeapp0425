@@ -32,12 +32,17 @@ const getDate = () => {
 };
 //Balance
 const BalanceData = () => {
-  const balance = getData().balance;
-  const depencesData = recurringBillsData();
+  const current = getData().balance.current;
+  const income = getData().balance.income;
+  const expenses = getData().balance.expenses;
 
-  console.log(depencesData);
+  console.log(current);
 
-  return balance;
+  return {
+    current,
+    income,
+    expenses,
+  };
 };
 //Transactions
 const TransactionsData = () => {

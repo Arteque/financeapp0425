@@ -1,0 +1,11 @@
+@use "../../../Style/Variables/mixin";
+.grid {
+  @include mixin.md {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+  }
+  @include mixin.lg {
+    gap: 24px;
+  }
+}

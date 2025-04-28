@@ -1,15 +1,13 @@
 @use "../../Style/Variables/mixin";
 
-.logo{
-    padding: 40px 0 ;
-    display: none;
-    @include mixin.md{
-        display: block;
-    }
-    a{
-        padding: 40px 0  40px 32px;
-        overflow: hidden;
-    }
+.logo {
+  padding: 40px 0;
+  display: none;
+  @include mixin.lg {
+    display: block;
+  }
+  a {
+    padding: 40px 0 40px 32px;
+    overflow: hidden;
+  }
 }
-
-

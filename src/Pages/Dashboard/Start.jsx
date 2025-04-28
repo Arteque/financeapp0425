@@ -25,6 +25,8 @@ import {
 //Test Data. The real data will be fetched from the API
 import Doughnut from "../../Components/Charts/Doughnut";
 import LeftLine from "../../Components/LeftLine/LeftLine";
+import Grid3Cols from "../../Components/Grids/Grid3Cols/Grid3Cols";
+import Grid2Cols from "../../Components/Grids/Grid2Cols/Grid2Cols";
 
 const Start = () => {
   const balance = BalanceData();
@@ -43,22 +45,42 @@ const Start = () => {
     <>
       <MainTitle>Overview</MainTitle>
       <section className="top_section">
-        <ContentContainer colorMode="dark" shadow={true} marginBlockEnd={true}>
-          <SmallTitle>Current Balance</SmallTitle>
-          <PageTitle>{Currency(balance.current, 2)}</PageTitle>
-        </ContentContainer>
-        <ContentContainer colorMode="light" shadow={true} marginBlockEnd={true}>
-          <SmallTitle className={" txt-grey-300"}>Income</SmallTitle>
-          <PageTitle>{Currency(balance.income, 2)}</PageTitle>
-        </ContentContainer>
-        <ContentContainer colorMode="light" shadow={true}>
-          <SmallTitle className={" txt-grey-300"}>Expenses</SmallTitle>
-          <PageTitle>{Currency(balance.expenses, 2)}</PageTitle>
-        </ContentContainer>
+        <Grid3Cols>
+          <ContentContainer
+            colorMode="dark"
+            shadow={true}
+            marginBlockEnd={true}
+          >
+            <SmallTitle>Current Balance</SmallTitle>
+            <PageTitle>{Currency(balance.current, 2)}</PageTitle>
+          </ContentContainer>
+          <ContentContainer
+            colorMode="light"
+            shadow={true}
+            marginBlockEnd={true}
+            className={"bg-white-100"}
+          >
+            <SmallTitle className={" txt-grey-300"}>Income</SmallTitle>
+            <PageTitle>{Currency(balance.income, 2)}</PageTitle>
+          </ContentContainer>
+          <ContentContainer
+            colorMode="light"
+            shadow={true}
+            className={"bg-white-100"}
+          >
+            <SmallTitle className={" txt-grey-300"}>Expenses</SmallTitle>
+            <PageTitle>{Currency(balance.expenses, 2)}</PageTitle>
+          </ContentContainer>
+        </Grid3Cols>
       </section>
 
       <section className="pots_section" style={{ marginBlockEnd: "16px" }}>
-        <ContentContainer dark={false} shadow={false} marginBlockEnd={false}>
+        <ContentContainer
+          dark={false}
+          shadow={false}
+          marginBlockEnd={false}
+          className={"bg-white-100"}
+        >
           {/* Pots Header Data */}
           <Flex
             between="space-between"
@@ -79,38 +101,43 @@ const Start = () => {
             </SmallTitle>
           </Flex>
           {/* Total Saved */}
-          <ContentContainer colorMode={false} className="bg-beige-100">
-            <Flex itemsCenter="center" gap="16px">
-              <div className="icon">
-                <img src="/icon-pot.svg" alt="Pots Icon" />
-              </div>
-              <Flex direction="column" gap="11px">
-                <SmallTitle>Total Saved</SmallTitle>
-                <PageTitle>{Currency(pots.potsSavingTotal)}</PageTitle>
+          <Grid2Cols>
+            <ContentContainer colorMode={false} className="bg-beige-100">
+              <Flex itemsCenter="center" gap="16px">
+                <div className="icon">
+                  <img src="/icon-pot.svg" alt="Pots Icon" />
+                </div>
+                <Flex direction="column" gap="11px">
+                  <SmallTitle>Total Saved</SmallTitle>
+                  <PageTitle>{Currency(pots.potsSavingTotal)}</PageTitle>
+                </Flex>
               </Flex>
-            </Flex>
-          </ContentContainer>
-          <div
-            className="savings_container"
-            style={{
-              display: "grid",
-              gridTemplateColumns: "repeat(2, 1fr)",
-              gridTemplateRows: "auto",
-              gap: "1rem",
-            }}
-          >
-            {pots.pots &&
-              pots.pots.length > 0 &&
-              pots.pots.map(({ name, total, theme }, index) => (
-                // Pots Data
-                <LeftLine
-                  name={name}
-                  total={Currency(total)}
-                  theme={theme}
-                  key={index}
-                />
-              ))}
-          </div>
+            </ContentContainer>
+            <div
+              className="savings_container"
+              style={{
+                display: "grid",
+                gridTemplateColumns: "repeat(2, 1fr)",
+                gridTemplateRows: "auto",
+                gap: "1rem",
+              }}
+            >
+              {pots.pots &&
+                pots.pots.length > 0 &&
+                pots.pots.map(
+                  ({ name, total, theme }, index) =>
+                    index < 4 && (
+                      // Pots Data
+                      <LeftLine
+                        name={name}
+                        total={Currency(total)}
+                        theme={theme}
+                        key={index}
+                      />
+                    )
+                )}
+            </div>
+          </Grid2Cols>
         </ContentContainer>
       </section>
       {/* Pots Section End */}
@@ -119,7 +146,7 @@ const Start = () => {
         className="transactions_section"
         style={{ marginBlockEnd: "24px" }}
       >
-        <ContentContainer>
+        <ContentContainer className={"bg-white-100"}>
           {/* Transactions Header Data */}
           <Flex
             className="Start__transactions__header"
@@ -224,7 +251,7 @@ const Start = () => {
 
       <section className="buddgets_section" style={{ marginBlockEnd: "24px" }}>
         {/* Budgets Section start */}
-        <ContentContainer>
+        <ContentContainer className={"bg-white-100"}>
           {/* Budgets Header Data */}
           <Flex
             className="Start__transactions__header"
@@ -318,7 +345,7 @@ const Start = () => {
         className="recurringbills_section"
         style={{ marginBlockEnd: "4rem" }}
       >
-        <ContentContainer>
+        <ContentContainer className={"bg-white-100"}>
           {/* Recurring Bills Header Data */}
           <Flex
             className="Start__transactions__header"
